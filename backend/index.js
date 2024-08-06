@@ -4,7 +4,11 @@ const { default: axios } = require("axios");
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: true }));
+app.use(cors({
+   origin: ["https://deploy-mern-lwhq.vercel.app"],
+   methods: ["POST", "GET"],
+   credentials:true
+  }));
 
 app.get('/', (req, res) => {
   res.json("Hello!!")
